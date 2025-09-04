@@ -1,14 +1,16 @@
 ---
-const images = [
-    "/images/galeria/solanas-1.jpg",
-    "/images/galeria/solanas-2.jpg",
-    "/images/galeria/solanas-3.jpg",
-];
+const images = [`${import.meta.env.BASE_URL}images/hero-solanas-1600x900.webp`];
 ---
 
+<style>
+    .track {
+        display: flex;
+        transition: transform 0.6s ease;
+    }
+</style>
 <section class="bg-white">
     <div class="max-w-6xl mx-auto px-4 py-10">
-        <div class="overflow-hidden rounded-xl border border-slate-200">
+        <div class="overflow-hidden rounded-xl border border-slate-200 reveal">
             <div class="track" id="track">
                 {
                     images.map((src) => (
@@ -24,19 +26,13 @@ const images = [
         </div>
     </div>
 </section>
-
-<style>
-    .track {
-        display: flex;
-        transition: transform 0.6s ease;
-    }
-</style>
 <script is:raw>
     (function () {
         const t = document.getElementById("track");
         if (!t) return;
         let i = 0;
         const n = t.children.length;
+        if (n < 2) return;
         setInterval(() => {
             i = (i + 1) % n;
             t.style.transform = `translateX(-${i * 100}%)`;
