@@ -1,0 +1,15 @@
+---
+const { id, title, subtitle = "", bg = "white" } = Astro.props;
+---
+
+<section id={id} class={`py-16 ${bg === "gray" ? "bg-slate-50" : "bg-white"}`}>
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-2xl mb-10 reveal">
+            <h2 class="text-3xl md:text-4xl font-bold">{title}</h2>
+            {subtitle && <p class="text-slate-600 mt-2">{subtitle}</p>}
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <slot />
+        </div>
+    </div>
+</section>

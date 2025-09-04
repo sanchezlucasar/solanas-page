@@ -1,0 +1,133 @@
+/* src/styles/global.css */
+@import "tailwindcss";
+
+/* Tokens de diseño Solanas */
+@theme {
+    --color-brand-50: #f3f7f4;
+    /* fondo muy claro */
+    --color-brand-200: #cfe0d3;
+    /* verde suave */
+    --color-brand-500: #87b391;
+    /* verde salvia */
+    --color-brand-700: #587e63;
+    /* verde principal */
+    --color-accent-500: #5b4772;
+    /* violeta */
+}
+
+/* Utilidades propias si querés */
+/* @utility .container { @apply max-w-6xl mx-auto px-4; } */
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --brand-50: #f3f7f4;
+    --brand-200: #cfe0d3;
+    --brand-500: #87b391;
+    --brand-700: #587e63;
+    /* verde salvia principal */
+    --accent-500: #5b4772;
+    /* violeta */
+}
+
+.text-brand {
+    color: var(--brand-700);
+}
+
+.bg-brand {
+    background: var(--brand-500);
+}
+
+.btn-brand {
+    background: var(--brand-700);
+    color: #fff;
+    border-radius: .9rem;
+    padding: .75rem 1.25rem;
+}
+
+.btn-ghost {
+    border: 1px solid #d1d5db;
+    border-radius: .9rem;
+    padding: .75rem 1.25rem;
+}
+
+.card {
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    background: #fff;
+}
+
+.badge {
+    display: inline-block;
+    padding: .25rem .6rem;
+    border-radius: 999px;
+    background: var(--brand-200);
+    color: var(--brand-700);
+    font-size: .8rem;
+}
+
+/* ===== Animaciones Solanas ===== */
+
+/* Fade-in al hacer scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: none;
+}
+
+/* Hover sutil en cards */
+.card {
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+}
+
+/* Botón con latido leve (p/WhatsApp) */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1)
+    }
+
+    50% {
+        transform: scale(1.03)
+    }
+}
+
+.btn-brand {
+    background: var(--color-brand-700);
+    color: #fff;
+    border-radius: .9rem;
+    padding: .75rem 1.25rem;
+}
+
+.btn-brand.whatsapp {
+    animation: pulse 2.2s ease-in-out infinite;
+}
+
+/* Respeta accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        transition: none
+    }
+
+    .card {
+        transition: none
+    }
+
+    .btn-brand.whatsapp {
+        animation: none
+    }
+}

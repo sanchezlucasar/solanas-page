@@ -1,0 +1,239 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Navbar from "@/components/Navbar.astro"; // o NavbarSMSA si lo renombraste
+import Footer from "@/components/Footer.astro";
+
+// ⚠️ Reemplazá estas rutas por tus fotos reales (colocalas en /public/gallery/)
+const images = [
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-1.webp",
+        alt: "Construcción de edificio",
+        tag: "Arquitectura",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-2.webp",
+        alt: "Movimiento de suelos",
+        tag: "Maquinaria",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-3.webp",
+        alt: "Obras civiles",
+        tag: "Obras civiles",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-4.webp",
+        alt: "Obras civiles",
+        tag: "Construcción",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-5.webp",
+        alt: "Obras civiles",
+        tag: "Construcción",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-6.webp",
+        alt: "Prefabricados de hormigón",
+        tag: "Construcción",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-7.webp",
+        alt: "Movimiento de suelos",
+        tag: "Obras civiles",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-8.webp",
+        alt: "Movimiento de suelos",
+        tag: "Obras civiles",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-9.webp",
+        alt: "Montaje de estructuras",
+        tag: "Construcción",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-10.webp",
+        alt: "Movimiento de suelos",
+        tag: "Maquinaria",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-11.webp",
+        alt: "nivelación de terreno",
+        tag: "Obras civiles",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-12.webp",
+        alt: "Montaje de estructuras metálicas",
+        tag: "Obras civiles",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-13.webp",
+        alt: "Montaje de estructuras metálicas",
+        tag: "Obras civiles",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-14.webp",
+        alt: "nivelación de terreno",
+        tag: "Maquinaria",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-15.webp",
+        alt: "Montaje de estructuras metálicas",
+        tag: "Obras civiles",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-16.webp",
+        alt: "Piletas",
+        tag: "Oil & Gas",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-17.webp",
+        alt: "Piletas ",
+        tag: "Oil & Gas",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-18.webp",
+        alt: "Movimiento de suelos",
+        tag: "Maquinaria",
+    },
+    {
+        src: "/Astro-sms-page/images/galeria/galeria-20.webp",
+        alt: "Excavación y montaje de fundaciones",
+        tag: "Oil & Gas",
+    },
+];
+
+const tags = [
+    "Todas",
+    "Obras civiles",
+    "Oil & Gas",
+    "Arquitectura",
+    "Construcción",
+    "Piping",
+    "Maquinaria",
+];
+---
+
+<BaseLayout
+    title="Galería | SMS S.A"
+    description="Galería de obras y proyectos de South Mining Service S.A."
+>
+    <Navbar />
+
+    <main class="min-h-screen bg-neutral-50 pb-16">
+        <section class="max-w-6xl mx-auto px-4 pt-14">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">
+                Galería
+            </h1>
+            <p class="mt-2 text-slate-600">
+                Obras, equipos y frentes de trabajo recientes.
+            </p>
+
+            <!-- Filtros -->
+            <div class="mt-6 flex flex-wrap gap-3">
+                {
+                    tags.map((t, i) => (
+                        <button
+                            class={`filter-btn px-4 py-2 rounded-full text-sm border ${i === 0 ? "bg-yellow-400 text-black border-yellow-400" : "border-slate-300 text-slate-700 hover:bg-slate-100"}`}
+                            data-tag={t}
+                        >
+                            {t}
+                        </button>
+                    ))
+                }
+            </div>
+
+            <!-- Masonry layout -->
+            <div
+                id="gallery"
+                class="mt-8 columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4"
+            >
+                {
+                    images.map((img) => (
+                        <figure
+                            class="mb-4 break-inside-avoid cursor-zoom-in group"
+                            data-tag={img.tag}
+                        >
+                            <img
+                                src={img.src}
+                                alt={img.alt}
+                                loading="lazy"
+                                class="w-full rounded-lg border border-slate-200 object-cover group-hover:opacity-90"
+                                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
+                            />
+                            <figcaption class="mt-2 text-xs text-slate-500">
+                                {img.tag}
+                            </figcaption>
+                        </figure>
+                    ))
+                }
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox nativo -->
+    <dialog
+        id="lightbox"
+        class="backdrop:bg-black/80 p-0 rounded-lg overflow-hidden"
+    >
+        <img
+            id="lightboxImage"
+            src=""
+            alt=""
+            class="max-h-[85vh] max-w-[95vw] object-contain bg-black"
+        />
+    </dialog>
+
+    <Footer />
+
+    <!-- Scripts mínimos -->
+    <script is:raw>
+        // Filtro por tag
+        const btns = document.querySelectorAll(".filter-btn");
+        const figs = document.querySelectorAll("#gallery figure");
+        btns.forEach((b) => {
+            b.addEventListener("click", () => {
+                btns.forEach((x) =>
+                    x.classList.remove(
+                        "bg-yellow-400",
+                        "text-black",
+                        "border-yellow-400",
+                    ),
+                );
+                b.classList.add(
+                    "bg-yellow-400",
+                    "text-black",
+                    "border-yellow-400",
+                );
+                const tag = b.dataset.tag;
+                figs.forEach((f) => {
+                    const show = tag === "Todas" || f.dataset.tag === tag;
+                    f.style.display = show ? "" : "none";
+                });
+            });
+        });
+
+        // Lightbox con <dialog>
+        const dlg = document.getElementById("lightbox");
+        const imgEl = document.getElementById("lightboxImage");
+        document.getElementById("gallery").addEventListener("click", (e) => {
+            const target = e.target.closest("img");
+            if (!target) return;
+            imgEl.src = target.src;
+            imgEl.alt = target.alt || "";
+            dlg.showModal();
+        });
+        dlg.addEventListener("click", (e) => {
+            // cerrar al click fuera de la imagen
+            const rect = imgEl.getBoundingClientRect();
+            const clickOutside =
+                e.clientX < rect.left ||
+                e.clientX > rect.right ||
+                e.clientY < rect.top ||
+                e.clientY > rect.bottom;
+            if (clickOutside) dlg.close();
+        });
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") dlg.close();
+        });
+    </script>
+</BaseLayout>

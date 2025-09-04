@@ -1,0 +1,23 @@
+---
+const { id, title, subtitle = "", bg = "white", full = false } = Astro.props;
+---
+
+<section id={id} class={`py-16 ${bg === "gray" ? "bg-slate-50" : "bg-white"}`}>
+    <div class={full ? "w-full px-0" : "max-w-6xl mx-auto px-4"}>
+        <div class={full ? "max-w-6xl mx-auto px-4 mb-10" : "max-w-2xl mb-10"}>
+            <h2 class="text-3xl md:text-4xl font-bold">{title}</h2>
+            {subtitle && <p class="text-slate-600 mt-2">{subtitle}</p>}
+        </div>
+
+        {
+            full ? (
+                // Cuando es full no envolvemos en grilla de 2 columnas
+                <slot />
+            ) : (
+                <div class="grid md:grid-cols-2 gap-8">
+                    <slot />
+                </div>
+            )
+        }
+    </div>
+</section>

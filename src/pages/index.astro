@@ -1,0 +1,224 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Navbar from "@/components/Navbar.astro";
+import Hero from "@/components/Hero.astro";
+import Carousel from "@/components/Carousel.astro";
+import Section from "@/components/Section.astro";
+import Footer from "@/components/Footer.astro";
+const WHATSAPP = "https://wa.me/542975408275";
+---
+
+<BaseLayout
+	title="Solanas - Centro de Salud"
+	description="Rehabilitación integral, kinesiología, fonoaudiología, clínica médica y más. Av. Canadá 2185, Comodoro Rivadavia."
+>
+	<Navbar />
+	<Hero />
+	<Carousel />
+
+	<!-- Equipo -->
+	<Section
+		id="equipo"
+		title="Nuestro Equipo"
+		subtitle="Profesionales dedicados a tu bienestar"
+		bg="gray"
+	>
+		<div class="card p-4 reveal">
+			<div class="flex gap-4 items-center">
+				<img
+					src="/images/equipo/equipo-mirta-ivanovich-800x800.webp"
+					alt="Mirta N. Ivanovich"
+					class="w-28 h-28 object-cover rounded-lg"
+					loading="lazy"
+				/>
+				<div>
+					<h3 class="font-semibold">Mirta N. Ivanovich</h3>
+					<p class="text-slate-600">
+						Lic. en Terapia Ocupacional · Rehabilitación y
+						orientación ocupacional
+					</p>
+					<span class="badge">MP 0104</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="card p-4 reveal">
+			<div class="flex gap-4 items-center">
+				<img
+					src="/images/equipo/equipo-solovei-elizabeth-800x800.webp"
+					alt="Solovei Elizabeth"
+					class="w-28 h-28 object-cover rounded-lg"
+					loading="lazy"
+				/>
+				<div>
+					<h3 class="font-semibold">Solovei Elizabeth</h3>
+					<p class="text-slate-600">
+						Kinesióloga · Fisiatría (R.P.G Souchard)
+					</p>
+					<span class="badge">MP 0450</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="card p-4 reveal">
+			<div class="flex gap-4 items-center">
+				<img
+					src="/images/equipo/equipo-marcela-verduras-800x800.webp"
+					alt="Marcela Verduras"
+					class="w-28 h-28 object-cover rounded-lg"
+					loading="lazy"
+				/>
+				<div>
+					<h3 class="font-semibold">Marcela Verduras</h3>
+					<p class="text-slate-600">
+						Fonoaudióloga · Rehabilitación del habla, el lenguaje y
+						la deglución
+					</p>
+					<span class="badge">MN 2974 · MP 0022</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="card p-4 reveal">
+			<div class="flex gap-4 items-center">
+				<img
+					src="/images/equipo/equipo-sosa-tomada-valeria-800x800.webp"
+					alt="Sosa Tomada Valeria"
+					class="w-28 h-28 object-cover rounded-lg"
+					loading="lazy"
+				/>
+				<div>
+					<h3 class="font-semibold">Sosa Tomada Valeria</h3>
+					<p class="text-slate-600">
+						Lic. en Kinesiología y Fisioterapia · Rehabilitación
+						Uroginecológica
+					</p>
+					<span class="badge">MP 0493</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="card p-4 reveal">
+			<div class="flex gap-4 items-center">
+				<img
+					src="/images/equipo/equipo-lukianczuk-paula-800x800.webp"
+					alt="Lukianczuk Paula"
+					class="w-28 h-28 object-cover rounded-lg"
+					loading="lazy"
+				/>
+				<div>
+					<h3 class="font-semibold">Lukianczuk Paula</h3>
+					<p class="text-slate-600">
+						Terapia Física · Rehabilitación Neurológica
+					</p>
+					<span class="badge">MN 9550 · MP 0533</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="card p-4 reveal">
+			<div class="flex gap-4 items-center">
+				<img
+					src="/images/equipo/equipo-cecilia-jacobsen-800x800.webp"
+					alt="Cecilia Jacobsen"
+					class="w-28 h-28 object-cover rounded-lg"
+					loading="lazy"
+				/>
+				<div>
+					<h3 class="font-semibold">Cecilia Jacobsen</h3>
+					<p class="text-slate-600">
+						Médica especialista en Clínica Médica y Neurología
+					</p>
+					<span class="badge">MN 111659 · MP 3888</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="card p-4 reveal">
+			<div class="flex gap-4 items-center">
+				<img
+					src="/images/equipo/equipo-oldani-jose-800x800.webp"
+					alt="Oldani José"
+					class="w-28 h-28 object-cover rounded-lg"
+					loading="lazy"
+				/>
+				<div>
+					<h3 class="font-semibold">Oldani José</h3>
+					<p class="text-slate-600">Médico Psiquiatra</p>
+					<span class="badge">MN 111483 · MP 4034</span>
+				</div>
+			</div>
+		</div>
+	</Section>
+
+	<!-- Servicios -->
+	<Section
+		id="servicios"
+		title="Servicios"
+		subtitle="Abordaje integral y personalizado"
+	>
+		<ul class="space-y-3 reveal">
+			<li>✔ Kinesiología y Fisiatría (RPG Souchard)</li>
+			<li>✔ Terapia Ocupacional</li>
+			<li>✔ Fonoaudiología</li>
+			<li>✔ Rehabilitación Neurológica</li>
+			<li>✔ Rehabilitación Uroginecológica</li>
+			<li>✔ Clínica Médica y Neurología</li>
+			<li>✔ Psiquiatría</li>
+		</ul>
+		<div
+			class="aspect-video rounded-lg border bg-[var(--color-brand-50)] reveal"
+		>
+		</div>
+	</Section>
+
+	<!-- Turnos -->
+	<Section
+		id="turnos"
+		title="Turnos"
+		subtitle="Coordiná tu consulta de forma rápida"
+		bg="gray"
+	>
+		<div class="card p-6 reveal">
+			<p class="text-slate-600">
+				Atendemos con obras sociales y de manera particular.
+			</p>
+			<p class="mt-2">
+				<strong>Horarios:</strong> Lun a Vie · 9:00 a 18:00
+			</p>
+			<div class="mt-4 flex gap-3">
+				<a href={WHATSAPP} class="btn-brand whatsapp"
+					>Sacar turno por WhatsApp</a
+				>
+				<a
+					href="mailto:info.solanascentrodesalud@gmail.com"
+					class="btn-ghost">Escribir por Email</a
+				>
+			</div>
+		</div>
+		<div class="card p-6 reveal">
+			<h3 class="font-semibold mb-2">Teléfono</h3>
+			<p>+54 297 540-8275</p>
+		</div>
+	</Section>
+
+	<!-- Contacto -->
+	<Section
+		id="contacto"
+		title="Contacto"
+		subtitle="Cómo llegar · Datos de contacto"
+	>
+		<div class="space-y-3 reveal">
+			<p>
+				<strong>Dirección:</strong> Av. Canadá 2185, Comodoro Rivadavia,
+				Argentina
+			</p>
+			<p><strong>Email:</strong> info.solanascentrodesalud@gmail.com</p>
+			<a class="btn-ghost inline-block" href={WHATSAPP}
+				>WhatsApp: 542975408275</a
+			>
+		</div>
+	</Section>
+
+	<Footer />
+</BaseLayout>
