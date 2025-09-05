@@ -18,6 +18,70 @@ const WHATSAPP = "https://wa.me/542975408275";
 	<Navbar />
 	<Hero />
 	<Carousel />
+	<section id="nosotros" class="py-20 bg-slate-50">
+		<div
+			class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center"
+		>
+			<!-- Columna izquierda: Texto -->
+			<div>
+				<h2 class="text-3xl md:text-4xl font-bold text-brand-700">
+					Sobre <span class="text-emerald-600">Nosotros</span>
+				</h2>
+				<p class="mt-4 text-slate-700 leading-relaxed">
+					En <strong>Solanas Centro de Salud</strong> trabajamos con un
+					enfoque integral para el cuidado de tu bienestar físico y emocional.
+					Nuestro equipo multidisciplinario de profesionales está comprometido
+					con la excelencia médica, la innovación y la atención personalizada.
+				</p>
+				<p class="mt-4 text-slate-700 leading-relaxed">
+					Creemos en la importancia de un trato humano y cercano,
+					acompañando a cada paciente en su proceso de recuperación,
+					con planes de tratamiento diseñados a medida y tecnología de
+					vanguardia.
+				</p>
+				<ul class="mt-6 space-y-3 text-slate-700">
+					<li class="flex items-start gap-2">
+						<span
+							class="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-500"
+						></span>
+						Más de 10 especialidades médicas y terapéuticas
+					</li>
+					<li class="flex items-start gap-2">
+						<span
+							class="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-500"
+						></span>
+						Profesionales altamente capacitados
+					</li>
+					<li class="flex items-start gap-2">
+						<span
+							class="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-500"
+						></span>
+						Atención personalizada para cada paciente
+					</li>
+				</ul>
+				<div class="mt-6">
+					<a
+						href={`${import.meta.env.BASE_URL}#equipo`}
+						class="btn-brand"
+					>
+						Conocer al Equipo
+					</a>
+				</div>
+			</div>
+
+			<!-- Columna derecha: Imagen -->
+			<div
+				class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm"
+			>
+				<img
+					src={`${import.meta.env.BASE_URL}images/nosotros.webp`}
+					alt="Equipo de Solanas Centro de Salud"
+					class="w-full h-full object-cover"
+					loading="lazy"
+				/>
+			</div>
+		</div>
+	</section>
 
 	<!-- Equipo 
 	<Section
