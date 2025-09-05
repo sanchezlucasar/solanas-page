@@ -1,19 +1,43 @@
-<footer class="border-t border-slate-200 bg-white">
-    <div
-        class="max-w-6xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-4"
-    >
-        <p class="text-sm text-slate-600">
-            © {new Date().getFullYear()} Solanas · Centro de Salud
-        </p>
-        <div class="flex items-center gap-4">
-            <a href="https://wa.me/542975408275" class="underline">WhatsApp</a>
-            <a
-                href="mailto:info.solanascentrodesalud@gmail.com"
-                class="underline">Email</a
-            >
-            <span class="text-sm text-slate-500"
-                >Av. Canadá 2185 · Comodoro</span
-            >
+<footer class="mt-16 bg-brand-700 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+        <div>
+            <h4 class="text-lg font-semibold">Solanas Centro de Salud</h4>
+            <p class="mt-2 text-sm text-slate-100">
+                Av. Canadá 2185 · Comodoro Rivadavia
+            </p>
         </div>
+        <div>
+            <h4 class="text-lg font-semibold">Secciones</h4>
+            <ul class="mt-2 space-y-1">
+                <li>
+                    <a
+                        href={`${import.meta.env.BASE_URL}#nosotros`}
+                        class="hover:text-emerald-400">Nosotros</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href={`${import.meta.env.BASE_URL}#servicios`}
+                        class="hover:text-emerald-400">Servicios</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href={`${import.meta.env.BASE_URL}#contacto`}
+                        class="hover:text-emerald-400">Contacto</a
+                    >
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-lg font-semibold">Contacto</h4>
+            <p class="mt-2 text-sm text-slate-100">Tel: (0297) 540-8275</p>
+            <p class="text-sm text-slate-100">Email: info@solanas.com</p>
+        </div>
+    </div>
+    <div
+        class="border-t border-slate-400/30 text-center py-3 text-sm text-slate-100"
+    >
+        © 2025 Solanas Centro de Salud
     </div>
 </footer>

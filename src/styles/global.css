@@ -9,10 +9,20 @@
     /* verde suave */
     --color-brand-500: #87b391;
     /* verde salvia */
-    --color-brand-700: #587e63;
+
+    --color-brand-700: #5F497B;
+    /* violeta principal */
+    /*--color-brand-700: #587e63;*/
     /* verde principal */
     --color-accent-500: #5b4772;
     /* violeta */
+}
+
+@theme {
+
+    /* Color principal */
+    --color-brand-500: #7C64A0;
+    /* Tono un poco más claro */
 }
 
 /* Utilidades propias si querés */

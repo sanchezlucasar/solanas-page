@@ -5,6 +5,8 @@ import Hero from "@/components/Hero.astro";
 import Carousel from "@/components/Carousel.astro";
 import Section from "@/components/Section.astro";
 import Footer from "@/components/Footer.astro";
+import SectionServicios from "@/components/SectionServicios.astro";
+import SectionContacto from "@/components/SectionContacto.astro";
 const WHATSAPP = "https://wa.me/542975408275";
 ---
 
@@ -63,7 +65,7 @@ const WHATSAPP = "https://wa.me/542975408275";
 		<div class="card p-4 reveal">
 			<div class="flex gap-4 items-center">
 				<img
-					src={`${import.meta.env.BASE_URL}images/equipo/equipo-verduras-marcela-800x800.webp`}
+					src={`${import.meta.env.BASE_URL}images/equipo/equipo-marcela-verduras-800x800.webp`}
 					alt="Marcela Verduras"
 					class="w-28 h-28 object-cover rounded-lg"
 					loading="lazy"
@@ -119,7 +121,7 @@ const WHATSAPP = "https://wa.me/542975408275";
 		<div class="card p-4 reveal">
 			<div class="flex gap-4 items-center">
 				<img
-					src={`${import.meta.env.BASE_URL}images/equipo/equipo-jacobsen-cecilia-800x800.webp`}
+					src={`${import.meta.env.BASE_URL}images/equipo/equipo-cecilia-jacobsen-800x800.webp`}
 					alt="Cecilia Jacobsen"
 					class="w-28 h-28 object-cover rounded-lg"
 					loading="lazy"
@@ -133,12 +135,9 @@ const WHATSAPP = "https://wa.me/542975408275";
 				</div>
 			</div>
 		</div>
-
-		<div class="card p-4 reveal">
-			<div class="flex gap-4 items-center">
-				<img src=`` />
-			</div>
-		</div>
 	</Section>
+
+	<SectionServicios />
+	<SectionContacto />
 </BaseLayout>
 <Footer />
