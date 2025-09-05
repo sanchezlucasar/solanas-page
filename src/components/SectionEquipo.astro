@@ -1,0 +1,116 @@
+---
+const base = import.meta.env.BASE_URL;
+const team = [
+  {
+    img: "equipo-mirta-ivanovich-800x800.webp",
+    nombre: "Mirta N. Ivanovich",
+    rol: "Lic. en Terapia Ocupacional",
+    detalle: "Rehabilitación y orientación ocupacional",
+    mat: "MP 0104",
+  },
+  {
+    img: "equipo-oldani-jose-800x800.webp",
+    nombre: "Oldani José",
+    rol: "Médico Psiquiatra",
+    detalle: "",
+    mat: "MN 111483 · MP 4034",
+  },
+  {
+    img: "equipo-cecilia-jacobsen-800x800.webp",
+    nombre: "Cecilia Jacobsen",
+    rol: "Clínica Médica y Neurología",
+    detalle: "Médica especialista",
+    mat: "MN 111659 · MP 3888",
+  },
+  {
+    img: "equipo-lukianczuk-paula-800x800.webp",
+    nombre: "Lukianczuk Paula",
+    rol: "Terapia Física",
+    detalle: "Rehabilitación Neurológica",
+    mat: "MN 9550 · MP 0533",
+  },
+  {
+    img: "equipo-sosa-tomada-valeria-800x800.webp",
+    nombre: "Sosa Tomada Valeria",
+    rol: "Kinesiología y Fisioterapia",
+    detalle: "Rehabilitación Uroginecológica",
+    mat: "MP 0493",
+  },
+  {
+    img: "equipo-marcela-verduras-800x800.webp",
+    nombre: "Marcela Verduras",
+    rol: "Fonoaudióloga",
+    detalle: "Habla, lenguaje y deglución",
+    mat: "MN 2974 · MP 0022",
+  },
+  {
+    img: "equipo-solovei-elizabeth-800x800.webp",
+    nombre: "Solovei Elizabeth",
+    rol: "Kinesióloga",
+    detalle: "Fisiatría (R.P.G Souchard)",
+    mat: "MP 0450",
+  },
+];
+---
+
+<section id="equipo" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <header class="max-w-3xl">
+      <h2 class="text-3xl md:text-4xl font-bold">
+        Nuestro <span class="text-brand-700">Equipo</span>
+      </h2>
+      <p class="mt-3 text-slate-600">
+        Profesionales comprometidos con una atención integral y humana.
+      </p>
+    </header>
+
+    <!-- Grid 2 columnas (1 en mobile) -->
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+      {team.map((p) => (
+        <article class="group rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <div class="grid grid-cols-[160px_1fr] gap-4 p-4">
+            <!-- Imagen cuadrada -->
+            <div class="aspect-square w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
+              <img
+                src={`${base}images/equipo/${p.img}`}
+                alt={p.nombre}
+                loading="lazy"
+                class="h-full w-full object-cover"
+                width="800"
+                height="800"
+              />
+            </div>
+
+            <!-- Texto -->
+            <div class="min-w-0">
+              <h3 class="text-xl font-semibold text-slate-900 leading-snug">
+                {p.nombre}
+              </h3>
+              <p class="text-brand-700 mt-1 font-medium">{p.rol}</p>
+              {p.detalle && <p class="text-slate-600 text-sm mt-1">{p.detalle}</p>}
+
+              <div class="mt-3">
+                <span class="inline-block text-xs px-3 py-1 rounded-full bg-brand-700/10 text-brand-700 ring-1 ring-brand-700/15">
+                  {p.mat}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Línea de base con CTA opcional -->
+          <div class="px-4 py-3 border-t border-slate-200 flex items-center justify-between">
+            <span class="text-xs text-slate-500">Atención interdisciplinaria</span>
+            <a
+              href={`https://wa.me/542975408275?text=${encodeURIComponent(`Hola, quiero un turno con ${p.nombre} (${p.rol}).`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm px-3 py-1.5 rounded-lg bg-brand-700 text-white hover:opacity-90"
+            >
+              Pedir turno
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

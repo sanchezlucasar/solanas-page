@@ -1,7 +1,3 @@
----
-
----
-
 <style>
     .nav-shadow {
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
@@ -22,6 +18,7 @@
 
 <nav class="sticky top-0 z-50 bg-white border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <!-- Logo -->
         <a href={`${import.meta.env.BASE_URL}`} class="flex items-center gap-2">
             <img
                 src={`${import.meta.env.BASE_URL}images/logo.webp`}
@@ -29,7 +26,46 @@
                 class="h-10"
             />
         </a>
-        <ul class="flex gap-6 text-base text-brand-700">
+
+        <!-- Botón hamburguesa (solo mobile) -->
+        <button
+            id="menuToggle"
+            class="md:hidden inline-flex items-center justify-center rounded-lg p-2 ring-1 ring-slate-300 text-brand-700"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+            data-open="false"
+            aria-label="Abrir menú"
+        >
+            <!-- icono hamburguesa -->
+            <svg
+                class="icon-hamb h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+            >
+                <path
+                    d="M4 7h16M4 12h16M4 17h16"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"></path>
+            </svg>
+            <!-- icono cerrar -->
+            <svg
+                class="icon-close h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+            >
+                <path
+                    d="M6 6l12 12M18 6l-12 12"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"></path>
+            </svg>
+        </button>
+
+        <!-- Menú desktop -->
+        <ul class="hidden md:flex gap-6 text-base text-brand-700">
             <li>
                 <a
                     href={`${import.meta.env.BASE_URL}#nosotros`}
@@ -57,6 +93,45 @@
             </li>
         </ul>
     </div>
+
+    <!-- Menú mobile (oculto por defecto) -->
+    <div
+        id="mobileMenu"
+        class="md:hidden hidden border-t border-slate-200 bg-white"
+    >
+        <div class="max-w-6xl mx-auto px-4 py-3">
+            <ul class="flex flex-col gap-3 text-brand-700">
+                <li>
+                    <a
+                        data-close="true"
+                        href={`${import.meta.env.BASE_URL}#nosotros`}
+                        class="block py-2 hover:text-emerald-600">Nosotros</a
+                    >
+                </li>
+                <li>
+                    <a
+                        data-close="true"
+                        href={`${import.meta.env.BASE_URL}#equipo`}
+                        class="block py-2 hover:text-emerald-600">Equipo</a
+                    >
+                </li>
+                <li>
+                    <a
+                        data-close="true"
+                        href={`${import.meta.env.BASE_URL}#servicios`}
+                        class="block py-2 hover:text-emerald-600">Servicios</a
+                    >
+                </li>
+                <li>
+                    <a
+                        data-close="true"
+                        href={`${import.meta.env.BASE_URL}#contacto`}
+                        class="block py-2 hover:text-emerald-600">Contacto</a
+                    >
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
 <script is:raw>
@@ -65,17 +140,20 @@
         const btn = document.getElementById("menuToggle");
         const menu = document.getElementById("mobileMenu");
         if (!btn || !menu) return;
+
         const setOpen = (open) => {
             btn.dataset.open = String(open);
             btn.setAttribute("aria-expanded", String(open));
             menu.classList.toggle("hidden", !open);
         };
+
         btn.addEventListener("click", () =>
             setOpen(btn.dataset.open !== "true"),
         );
         menu.querySelectorAll('a[data-close="true"]').forEach((a) =>
             a.addEventListener("click", () => setOpen(false)),
         );
+
         const onScroll = () =>
             nav.classList.toggle("nav-shadow", window.scrollY > 6);
         document.addEventListener("scroll", onScroll, { passive: true });
